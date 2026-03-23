@@ -20,6 +20,7 @@ public:
 	void enrollStd(int std_id, int c_id);
 	void searchStd(int id);
 	void diplayAllStd();
+	void displayStdCourses(int id);
 
 
 };

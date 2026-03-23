@@ -46,7 +46,7 @@ void Managment::diplayAllStd() {
 	 return;
 	}
 	for (auto s : students) {
-		cout << "std id: " << s.getId() << "\t" << "std name: " << s.getName() << "\t" << "std GPA: " << s.getGPA() << endl;
+		cout << "std id:  " << s.getId()<< "\t" << "std name:  " << s.getName() << "\t" << "std GPA: " << s.getGPA() << endl;
 		cout << "std courses: " ;
 		s.displayCourses();
 	}
@@ -102,6 +102,19 @@ void Managment::searchStd(int id){
 		});
 	if (ptr_std != students.end()) {
 		cout << "std name: " << ptr_std->getName() << "  GPA: " << ptr_std->getGPA() << endl;
+	}
+	else {
+		cout << "Student not found" << endl;
+	}
+}
+void Managment::displayStdCourses(int id) {
+		auto ptr_std = find_if(students.begin(), students.end(), [id](Student& std) {
+		return std.getId() == id;
+		});
+	if (ptr_std != students.end()) {
+		cout << "std name: " << ptr_std->getName() << "  GPA: " << ptr_std->getGPA() << endl;
+		cout << "std courses: ";
+		ptr_std->displayCourses();
 	}
 	else {
 		cout << "Student not found" << endl;

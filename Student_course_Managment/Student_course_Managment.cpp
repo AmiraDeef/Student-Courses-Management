@@ -12,10 +12,11 @@ void displayMenu() {
        "Exit",                         
         "Add New Student",               
         "Remove Student",               
-        "Search for Student",            
+        "Search for Student", 
         "Display All Students",         
         "Enroll Student in Course",     
-        "Sort Students by GPA"
+        "Sort Students by GPA",
+        "Display Student's courses"
     };
 
     cout << "\n====================================" << endl;
@@ -116,9 +117,16 @@ void validateChoice(int x, Managment& mRef) {
             mRef.diplayAllStd();
 			flag = true;
             break;
+        case 7:{ cout << "Enter your ID to diplay ur courses: ";
+            int id = validateId();
+			mRef.displayStdCourses(id);
+            flag = true;
+            break;}
+           
+
         default:
 
-            cout << "Invalid choice. Re-enter num of commands(0-6)" << endl;
+            cout << "Invalid choice. Re-enter num of commands(0-7)" << endl;
            if(!(cin>>x)){
                cin.clear();
             cin.ignore(1000, '\n');

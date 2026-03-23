@@ -39,7 +39,7 @@ void Student::displayCourses() {
 		return;
 	}
 	for (Course c : courses) {
-		cout << c.gatName() << endl;
+		cout << c.gatName() << "\t";
 
 	}
 }
