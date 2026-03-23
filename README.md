@@ -4,7 +4,12 @@
 I built this project as a simple console application in C++ to manage students and their courses. The idea was to practice OOP concepts and also solve a real problem: how to store and manage student data without losing it after closing the program.
 
 ---
+## 📊 System Design
+Below is the UML class diagram showing the relationships between classes (Inheritance, Aggregation, and Association).
 
+![UML Diagram](./digrams/atd_class_digram.png)
+
+---
 ## What I implemented
 
 ### 1. OOP Design
@@ -45,13 +50,6 @@ I used `fstream` and `stringstream` to read and split the data.
 
 ---
 
-### 5. ID Handling
-I didn’t want IDs to restart every time, so:
-- I read the file first
-- Got the last used ID
-- Continued counting from there
-
----
 
 ## How to use the program
 
