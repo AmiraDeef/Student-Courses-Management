@@ -1,6 +1,6 @@
 #include "Student.h"
 
-int Student::counter = 100;
+int Student::counter = 1000;
 
 Student::Student(string n, double g) {
 	this->id= ++counter;
@@ -14,6 +14,9 @@ int Student::getId() {
 double Student::getGPA() {
 	return gpa;
 }
+set<Course> Student::getCourses() {
+	return courses;
+}
 void Student::setGPA(double g) {
 	if (g >= 0 && g <= 4.0) {
 		gpa = g;
@@ -23,6 +26,12 @@ void Student::setGPA(double g) {
 		cout << "invalid gpa" << endl;
 	}
 	
+}
+void Student::setId(int up_id) {
+	this->id = up_id;
+}
+ void Student::setCounter(int latest_id) {
+	counter = latest_id;
 }
 void Student::addCourse(int c_id,string c_name) {
 	auto value=courses.insert(Course( c_id, c_name));

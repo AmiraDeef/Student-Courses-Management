@@ -3,6 +3,8 @@
 #include <algorithm>
 #include "Course.h"
 #include<set>
+#include <fstream>
+#include <sstream>
 
 
 
@@ -47,9 +49,11 @@ void Managment::diplayAllStd() {
 	 return;
 	}
 	for (auto s : students) {
+	
 		cout << "std id:  " << s.getId()<< "\t" << "std name:  " << s.getName() << "\t" << "std GPA: " << s.getGPA() << endl;
-		cout << "std courses: " ;
+		cout << "std courses: "<<"\n";
 		s.displayCourses();
+		cout << endl;
 	}
 
 
@@ -120,4 +124,59 @@ void Managment::displayStdCourses(int id) {
 	else {
 		cout << "Student not found" << endl;
 	}
+}
+void Managment::saveToFile(){
+	ofstream file("students.txt", ios::trunc);
+	if (!file) {
+		cout << "not found" << endl;
+		return;
+	}
+	for (auto s:students)
+	{
+		file << s.getId() << "," << s.getName() << "," << s.getGPA() ;
+		for (auto c : s.getCourses()) {
+			file<< "," << c.getId()<< ","<<c.gatName() ;
+		}
+		file << "\n";
+
+	}
+
+	file.close();
+}
+void Managment::loadFromFile(){
+	ifstream file("students.txt");
+	if (!file) {
+		cout << "not found" << endl;
+		return;
+	}
+	string line;
+	int max_id = 1000;
+	while(getline(file, line)) {
+		stringstream str(line);
+		string id_str, name, gpa_str, courses_str;
+		getline(str, id_str, ',');
+		getline(str, name, ',');
+		getline(str, gpa_str, ',');
+		getline(str, courses_str);
+		int id = stoi(id_str);
+		double gpa = stod(gpa_str);
+		
+		Student::setCounter(id - 1);
+		Student s(name, gpa);
+		s.setGPA(gpa);
+		 id > max_id ? max_id = id : max_id;
+		
+
+		 stringstream ss_co(courses_str);
+		 string c_name, c_id_str;
+
+		 while (getline(ss_co, c_id_str, ',') && getline(ss_co, c_name, ',')) {
+			 if (!c_id_str.empty() && !c_name.empty()) {
+				 s.addCourse(stoi(c_id_str), c_name);
+			 }
+		 }
+		students.push_back(s);
+	}
+	Student::setCounter(max_id);
+
 }

@@ -21,6 +21,8 @@ public:
 	void searchStd(int id);
 	void diplayAllStd();
 	void displayStdCourses(int id);
+	void saveToFile();
+	void loadFromFile();
 
 
 };

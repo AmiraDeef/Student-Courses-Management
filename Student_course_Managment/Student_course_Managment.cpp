@@ -55,6 +55,7 @@ void validateChoice(int x, Managment& mRef) {
     {
         switch (x) {
         case 0:
+            mRef.saveToFile();
             cout << "Exiting the program. Goodbye!" << endl;
 			flag = true;
             break;
@@ -71,6 +72,8 @@ void validateChoice(int x, Managment& mRef) {
             cin.ignore();
 
             mRef.addStdt(name, gpa);
+            
+            mRef.saveToFile();
             flag = true;
 
             break;
@@ -88,11 +91,16 @@ void validateChoice(int x, Managment& mRef) {
             
             cout << "Enter student ID to search: ";
             int id = validateId();
+			cout << "student info: " << endl;
             mRef.searchStd(id);
 			flag = true;
             break;
         }
         case 4:
+            cout << "\n====================================" << endl;
+            cout << "Students in system sorted by id : " << endl;
+            cout << "====================================" << endl;
+
             mRef.diplayAllStd();
 			flag = true;
             break;
@@ -112,11 +120,20 @@ void validateChoice(int x, Managment& mRef) {
         }
         case 6:
             mRef.sortByGPA();
+            cout << "\n====================================" << endl;
+            cout << "Students sorted by GPA : " << endl;
+            cout << "====================================" << endl;
+
             mRef.diplayAllStd();
 			flag = true;
             break;
         case 7:{ cout << "Enter your ID to diplay ur courses: ";
             int id = validateId();
+            cout << "\n====================================" << endl;
+
+            cout << "student's courses : " << endl;
+            cout << "====================================" << endl;
+
 			mRef.displayStdCourses(id);
             flag = true;
             break;}
@@ -146,13 +163,15 @@ void validateChoice(int x, Managment& mRef) {
 int main()
 {
     Managment m1;
+    m1.loadFromFile();
+    system("cls");
 	int choice;
     do
     {
         displayMenu();
 		//cin >> choice;
         while (!(cin >> choice)) {
-            cout << "Invalid choice. Enter number (0-6): ";
+            cout << "Invalid choice. Enter number (0-7): ";
             cin.clear();
             cin.ignore(1000, '\n');
         }

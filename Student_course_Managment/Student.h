@@ -22,9 +22,13 @@ public:
 	Student( string n, double g);
 	int getId();
 	double getGPA();
+	set<Course> getCourses();
 	void addCourse(int c_id,string c_name);
 	void displayCourses();
 	void setGPA(double g);
+	void setId(int up_id);
+	static void setCounter(int latest_id);
+
 	//bool operator>(Student& s);
 
 
