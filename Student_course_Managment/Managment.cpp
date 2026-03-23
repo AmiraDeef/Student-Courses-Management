@@ -1,7 +1,19 @@
 #include "Managment.h"
 #include "Student.h"
 #include <algorithm>
+#include "Course.h"
+#include<set>
 
+
+
+static vector<Course>courses = {
+	Course(101,"Math"),
+	Course(102,"OOP"),
+	Course(103,"Data Strucure"),
+	Course(104,"Operating Systems"),
+	Course(105,"Frontend"),
+	Course(106,"Backend")
+};
 
 void Managment::addStdt(int id, string n, double g){
 	while (g < 0 || g>4) {
@@ -34,8 +46,8 @@ void Managment::diplayAllStd() {
 	 return;
 	}
 	for (auto s : students) {
-		cout << "std id: " << s.getId() << "std name: " << s.getName() << "std GPA: " << s.getGPA() << endl; 
-		cout << "std courses: " << "\t";
+		cout << "std id: " << s.getId() << "\t" << "std name: " << s.getName() << "\t" << "std GPA: " << s.getGPA() << endl;
+		cout << "std courses: " ;
 		s.displayCourses();
 	}
 
@@ -50,14 +62,34 @@ void Managment::sortByGPA(){
 	//diplayAllStd();
 		
 }
-void Managment::enrollStd(int std_id,string c_name){
-	auto ptr_std = find_if(students.begin(), students.end(), [std_id](Student std) {
+void Managment::displayCourses() {
+	cout << "\n--- Available Courses ---" << endl;
+	for (Course& c : courses) {
+		cout << c.getId() << " . " << c.gatName() << "\n";
+	}
+	cout << "\n--------------------------" << endl;
+}
+void Managment::enrollStd(int std_id,int c_id){
+
+	
+	
+	auto ptr_std = find_if(students.begin(), students.end(), [std_id](Student & std) {
 		return std.getId() == std_id;
 		});
 
 	if (ptr_std != students.end()) {
-		ptr_std->addCourse(c_name);
-		cout << c_name << " course added to student named: " << ptr_std->getName() << endl;
+		auto ptr_co = find_if(courses.begin(), courses.end(), [c_id](Course c) {
+			return c.getId() == c_id;
+			});
+		if (ptr_co != courses.end()) {
+			//string c_name= ptr_co->gatName();
+			ptr_std->addCourse(ptr_co->getId(), ptr_co->gatName());
+			//cout << ptr_co->gatName() << " course added to student named: " << ptr_std->getName() << endl;
+		}
+		else {
+			cout << "invalid input"<<endl;
+		}
+		
 	}
 	else {
 		cout << "Student not found" << endl;

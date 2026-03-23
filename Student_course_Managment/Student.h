@@ -21,10 +21,10 @@ public:
 	Student(int id, string n, double g);
 	int getId();
 	double getGPA();
-	void addCourse(string c_name);
+	void addCourse(int c_id,string c_name);
 	void displayCourses();
 	void setGPA(double g);
-	bool operator>(Student& s);
+	//bool operator>(Student& s);
 
 
 

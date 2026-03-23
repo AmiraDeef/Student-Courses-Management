@@ -5,18 +5,20 @@
 #include "Course.h"
 #include <string>
 #include <vector>
+#include <set>
 class Managment
 {
 private:
 	vector<Student> students;
-
-
+	
 public:
+
 	void addStdt(int id, string n, double g);
 	void removeStd(int id);
+	void displayCourses();
 	void sortByGPA();
-	void enrollStd(int std_id, string c_name);
-	void  searchStd(int id);
+	void enrollStd(int std_id, int c_id);
+	void searchStd(int id);
 	void diplayAllStd();
 
 

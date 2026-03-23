@@ -23,8 +23,14 @@ void Student::setGPA(double g) {
 	}
 	
 }
-void Student::addCourse(string c_name) {
-	courses.insert(Course( c_name));
+void Student::addCourse(int c_id,string c_name) {
+	auto value=courses.insert(Course( c_id, c_name));
+	if (value.second) {
+		cout << c_name << " added to your courses." << endl;
+	}
+	else {
+		cout << "[Notice] You are already enrolled in " << c_name << "!" << endl;
+	}
 }
 
 void Student::displayCourses() {
@@ -38,7 +44,7 @@ void Student::displayCourses() {
 	}
 }
 
-bool Student::operator>(Student& s) {
-	return this->getGPA() > s.getGPA();
-}
+//bool Student::operator>(Student& s) {
+//	return this->getGPA() > s.getGPA();
+//}
 

@@ -11,13 +11,11 @@ private:
 	int id;
 
 public:
-	Course(string n);
+	Course(int id,string n);
 	~Course();
-	int getId();
-	string gatName();
-	bool operator<(const Course& c) const {
-		return name < c.name;
-	}
+	int getId()const;
+	string gatName()const;
+	bool operator<(const Course& c)const;
 
 };
 
