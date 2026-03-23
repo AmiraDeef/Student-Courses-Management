@@ -7,7 +7,7 @@ I built this project as a simple console application in C++ to manage students a
 ## 📊 System Design
 Below is the UML class diagram showing the relationships between classes (Inheritance, Aggregation, and Association).
 
-![UML Diagram](../digrams/std_class_digram.png)
+![UML Diagram](./digrams/std_class_digram.png)
 
 ---
 ## What I implemented
