@@ -12,13 +12,14 @@ class Student :public Person
 private:
 
 	int id;
+	static int counter;
 	double gpa = 0.0;
 	set<Course>courses;
 
 
 
 public:
-	Student(int id, string n, double g);
+	Student( string n, double g);
 	int getId();
 	double getGPA();
 	void addCourse(int c_id,string c_name);

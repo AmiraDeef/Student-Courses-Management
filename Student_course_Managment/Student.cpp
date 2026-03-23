@@ -1,8 +1,9 @@
 #include "Student.h"
 
+int Student::counter = 100;
 
-Student::Student(int id, string n, double g) {
-	this->id = id;
+Student::Student(string n, double g) {
+	this->id= ++counter;
 	this->name = n;
 	gpa = g;
 }

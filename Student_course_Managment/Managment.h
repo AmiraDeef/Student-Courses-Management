@@ -13,7 +13,7 @@ private:
 	
 public:
 
-	void addStdt(int id, string n, double g);
+	void addStdt( string n, double g);
 	void removeStd(int id);
 	void displayCourses();
 	void sortByGPA();

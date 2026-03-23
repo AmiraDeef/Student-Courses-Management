@@ -15,14 +15,15 @@ static vector<Course>courses = {
 	Course(106,"Backend")
 };
 
-void Managment::addStdt(int id, string n, double g){
+void Managment::addStdt( string n, double g){
 	while (g < 0 || g>4) {
 		cout << "re-enter GPA,GPA must between 0.0 and 4.0";
 		cin >> g;
 
  }
-	students.push_back(Student( id,  n,  g));
-	cout << "Student added" << endl;
+	Student newStd(n, g);
+	students.push_back(newStd);
+	cout <<"student with Id:  " << newStd.getId() << "  added successfully" << endl;
 }
 void Managment::removeStd(int id){
 	auto ptr_std = find_if(students.begin(), students.end(), [id](Student std) {

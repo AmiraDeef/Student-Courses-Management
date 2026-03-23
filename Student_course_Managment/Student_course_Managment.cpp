@@ -62,8 +62,6 @@ void validateChoice(int x, Managment& mRef) {
            
             string name;
             double gpa;
-            cout << "Enter student ID: ";
-            int id = validateId();
             cin.ignore();
             cout << "Enter student name: ";
 			getline(cin, name);
@@ -72,7 +70,7 @@ void validateChoice(int x, Managment& mRef) {
             cin >> gpa;
             cin.ignore();
 
-            mRef.addStdt(id, name, gpa);
+            mRef.addStdt(name, gpa);
             flag = true;
 
             break;
