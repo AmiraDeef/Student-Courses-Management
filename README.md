@@ -1,30 +1,33 @@
 # Student & Course Management System
 
 ## About the Project
-I built this project as a simple console application in C++ to manage students and their courses. The idea was to practice OOP concepts and also solve a real problem: how to store and manage student data without losing it after closing the program.
+I built this project as a simple console application in C++ to manage students and their courses. The main goal was to practice OOP concepts and also handle real problems like storing data and keeping it after closing the program.
 
 ---
+
 ## 📊 System Design
 Below is the UML class diagram showing the relationships between classes (Inheritance, Aggregation, and Association).
 
 ![UML Diagram](./digrams/std_class_digram.png)
 
 ---
+
 ## What I implemented
 
 ### 1. OOP Design
-I used Object-Oriented Programming to organize the project:
+I used Object-Oriented Programming to structure the project:
 - A base class `Person`
 - A derived class `Student`
 
-This helped me separate common data and make the code cleaner and easier to extend.
+This helped me organize the data and keep the code clean and reusable.
 
 ---
 
 ### 2. Managing Students
-I stored all students in a `vector`.  
+I stored all students using a `vector`.
+
 Each student has:
-- ID (auto-generated)
+- Auto-generated ID
 - Name
 - GPA
 - List of enrolled courses
@@ -32,48 +35,55 @@ Each student has:
 ---
 
 ### 3. Course System
-Instead of typing course names manually, I created predefined courses with IDs.  
-This made the system more realistic and avoided mistakes in input.
+I created predefined courses with IDs instead of letting the user type names manually.
 
-Each student can enroll in courses, and I made sure the same course can't be added twice.
+This helped:
+- Avoid input mistakes
+- Make the system more realistic
+
+Also, I made sure a student cannot enroll in the same course twice.
 
 ---
 
 ### 4. File Handling (Save & Load)
-One important part I worked on was saving data.
+I implemented saving and loading using a text file:
 
-- I saved all students in a file called `students.txt`
-- When the program starts, it loads the data automatically
+- Data is saved in `students.txt`
+- When the program starts, it loads all previous data
 - This prevents losing data after closing the program
 
-I used `fstream` and `stringstream` to read and split the data.
+I used:
+- `fstream` for file handling
+- `stringstream` to parse the data
 
 ---
 
+## 🛠️ Requirements
 
-## How to use the program
-
-1. Run the project using Visual Studio
-2. You will see a menu with options (0 → 7)
-3. Choose any operation by typing its number
-4. Follow the instructions on screen
-
-⚠️ Important:
-Always choose `0` (Exit) before closing, so the data gets saved correctly.
+To run this project, you need:
+- C++ compiler (GCC or Visual Studio)
+- Windows OS (recommended for Visual Studio users)
 
 ---
 
-## Features
+## ▶️ How to Compile and Run
 
-- Add new students
-- Remove students
-- Search by ID
-- Display all students
-- Sort students by GPA
-- Enroll students in courses
-- Display student courses
-- Save and load data from file
+### Option 1: Using Visual Studio
+1. Open Visual Studio
+2. Go to **File > Open > Project/Solution**
+3. Select the project file (`.sln`)
+4. Press `Ctrl + Shift + B` to build
+5. Press `Ctrl + F5` to run
 
+---
+
+### Option 2: Using G++ (Command Line)
+
+Make sure all `.cpp` files are in the same folder, then run:
+
+```bash
+g++ -o StudentSystem Student_course_Managment.cpp Student.cpp Managment.cpp Course.cpp Person.cpp
+```
 ---
 
 ## Challenges I faced
