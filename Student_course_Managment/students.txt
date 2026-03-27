@@ -1,4 +1,4 @@
+1003,mariam,4,103,Data Strucure
 1001,amira,3.8,106,Backend,102,OOP,104,Operating Systems
 1002,jolie,2.9
-1003,mariam,4,103,Data Strucure
 1004,ali,1.5
